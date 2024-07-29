@@ -28,5 +28,8 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
     Route::get('progetti', [ProgettiController::class, 'index'])->name('admin.progetti.index');
     Route::get('progetti/create', [ProgettiController::class, 'create'])->name('admin.progetti.create');
     Route::post('progetti', [ProgettiController::class, 'store'])->name('progetti.store');
+    Route::get('progetti/{project}/edit', [ProgettiController::class, 'edit'])->name('admin.progetti.edit');
+    Route::put('progetti/{project}', [ProgettiController::class, 'update'])->name('progetti.update');
+    Route::delete('progetti/{project}', [ProgettiController::class, 'destroy'])->name('admin.progetti.destroy');
     Route::get('progetti/{project}', [ProgettiController::class, 'show'])->name('admin.progetti.show');
 });

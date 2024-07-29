@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProjectRequest;
+use App\Http\Requests\UpdateProjectRequest;
 use Illuminate\Http\Request;
 use App\Models\projects;
 use Carbon\Carbon;
@@ -32,7 +33,7 @@ class ProgettiController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        $data = $request->validated();;
+        $data = $request->validated();
         $data["data_inizio"] = Carbon::now();
         $newProgetto = projects::create($data);
         return redirect()->route('admin.admin.progetti.show', ($newProgetto));
@@ -49,17 +50,20 @@ class ProgettiController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(projects $project)
     {
-        //
+        return  view('admin.progetti.edit', compact("project"));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateProjectRequest $request, projects $project)
     {
-        //
+        $data = $request->validated();
+        $data["data_inizio"] = Carbon::now();
+        $project->update($data);
+        return redirect()->route('admin.admin.progetti.show', ($project));
     }
 
     /**
