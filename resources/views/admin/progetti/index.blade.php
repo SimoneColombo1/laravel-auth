@@ -27,10 +27,10 @@
                             <a href="{{ route('admin.admin.progetti.edit', $project) }}" class="btn btn-warning">Modifica
                                 Il progetto</a>
                             <form action="{{ route('admin.progetti.destroy', $project) }} " method="POST"
-                                class="d-inline-block">
+                                class="d-inline-block deleter">
                                 @method('DELETE')
                                 @csrf
-                                <button type="submit" class="btn btn-small btn-danger">Elimina</button>
+                                <button type="submit" class="btn btn-small btn-danger ">Elimina</button>
                             </form>
                         </li>
                     </ul>
@@ -39,4 +39,11 @@
             @endforeach
         </div>
     </div>
+@endsection
+
+
+
+
+@section('scripts')
+    @vite('resources\js\Project\DeleteProject.js')
 @endsection
