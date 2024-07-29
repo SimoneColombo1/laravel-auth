@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\Models\projects;
+use Carbon\Carbon;
 
 class ProgettiController extends Controller
 {
@@ -33,8 +34,9 @@ class ProgettiController extends Controller
     {
 
         $data = $request->all();
+        $data["data_inizio"] = Carbon::now();
         $newProgetto = projects::create($data);
-        return redirect()->route('admin.progetti.show', ($newProgetto));
+        return redirect()->route('admin.admin.progetti.show', ($newProgetto));
     }
 
     /**

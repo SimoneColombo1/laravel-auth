@@ -1,8 +1,26 @@
 // Fonts
-@import url('https://fonts.bunny.net/css?family=Nunito');
+@import url("https://fonts.bunny.net/css?family=Nunito");
 
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bootstrap
-@import 'bootstrap/scss/bootstrap';
+@import "bootstrap/scss/bootstrap";
+
+.card {
+    padding: 2rem;
+    margin: 1rem;
+    background-color: #8dbedf;
+    font-size: 1.1rem;
+    li {
+        background-color: #8dbedf;
+    }
+}
+
+.single-project {
+    border: solid 1px #06478a;
+    li {
+        border: solid 1px #06478a;
+        font-size: 1.4rem;
+    }
+}

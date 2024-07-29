@@ -22,8 +22,11 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Progetti
+                <a class="navbar-brand" href="{{ route('admin.admin.progetti.index') }}">
+                    I Tuoi Progetti
+                </a>
+                <a class="navbar-brand" href="{{ route('admin.admin.progetti.create') }}">
+                    Crea un Progetto
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
