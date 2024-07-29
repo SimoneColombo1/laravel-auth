@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Admin\ProgettiController as ProgettiController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,4 +15,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('pages.home');
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
+
+
+    Route::get('progetti', [ProgettiController::class, 'index'])->name('admin.progetti.index');
+    Route::get('progetti/create', [ProgettiController::class, 'create'])->name('admin.progetti.create');
+    Route::post('progetti', [ProgettiController::class, 'store'])->name('progetti.store');
+    Route::get('progetti/{project}', [ProgettiController::class, 'show'])->name('admin.progetti.show');
 });
