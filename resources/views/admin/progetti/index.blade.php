@@ -4,7 +4,7 @@
     <div class="container">
         <div class="col-12 row justify-content-center">
             @foreach ($projects as $project)
-                <div class="col-5 card">
+                <div class="col-5 card card-index">
                     <ul class="list-group">
 
                         <li class="list-group-item">Nome: {{ $project->nome }} </li>

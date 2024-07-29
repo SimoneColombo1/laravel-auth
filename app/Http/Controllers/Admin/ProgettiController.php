@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-
+use App\Http\Requests\StoreProjectRequest;
 use Illuminate\Http\Request;
 use App\Models\projects;
 use Carbon\Carbon;
@@ -30,10 +30,9 @@ class ProgettiController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreProjectRequest $request)
     {
-
-        $data = $request->all();
+        $data = $request->validated();;
         $data["data_inizio"] = Carbon::now();
         $newProgetto = projects::create($data);
         return redirect()->route('admin.admin.progetti.show', ($newProgetto));
